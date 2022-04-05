@@ -12,12 +12,13 @@
             rel="stylesheet"
         />
 
-        <script type="module" src="/main.js"></script>
+        <link rel="stylesheet" href="./scss/main.scss">
+        <script type="module" src="/main.js" defer></script>
 
         <title>Martin Heywang &bull; Portfolio</title>
     </head>
     <body>
-        <section id="landing">
+        <section id="landing" class="landing">
             <div class="container">
                 <img class="landing__avatar" src="./favicon.svg" alt="my avatar - looks like an eye made out of square" />
                 <div class="landing__text">
@@ -25,6 +26,11 @@
                     <p class="landing__p">I'm a young, french, self-taught, always-smiling developer.</p>
                     <button class="landing__btn">My Projects</button>
                 </div>
+            </div>
+        </section>
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="projects__title">Projects</h2>
             </div>
         </section>
     </body>

@@ -1,0 +1,29 @@
+@use "./media" as media;
+
+.landing {
+    &__text {
+        max-width: 35ch;
+    
+        @include media.for-mobile {
+            margin-top: 2em;
+        }
+    }
+    
+    &__btn {
+        margin-top: 1em;
+    }
+    
+    &__avatar {
+        border-radius: 12.5% 50% 50% 50%;
+    }
+}
+
+
+#landing .container {
+    @include media.for-desktop {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
