@@ -1,4 +1,57 @@
+@use "./media" as media;
+
 .projects {
     background-color: var(--clr-neutral-900);
     color: var(--clr-neutral-100);
+
+    &__list {
+        list-style: none;
+        padding: 0;
+
+        display: grid;
+        gap: 1em;
+
+        @include media.for-desktop {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 1fr;
+        }
+
+        & > * {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+    }
+}
+
+.project {
+    background-color: rgba(0, 0, 0, 30%);
+
+    --padding: 1em;
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: var(--padding);
+
+        border-bottom: 1px solid var(--clr-neutral-100);
+    }
+
+    &__title {
+        color: var(--clr-primary-500);
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    &__tech {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    &__desc {
+        padding: var(--padding);
+        margin: 0;
+    }
 }
