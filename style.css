@@ -1,8 +1,98 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-neutral-100: #FEF0E6;
+    --clr-neutral-900: #333;
+
+    --clr-primary-500: #D25C06;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-color: var(--clr-neutral-100);
+
+    color: var(--clr-neutral-900);
+    font-family: "Montserrat", sans-serif;
+}
+
+.container {
+    width: min(85%, 900px);
+    margin: auto;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+    margin: 0;
+    text-transform: uppercase;
+    font-family: "Bebas Neue", sans-serif;
+    line-height: 100%;
+}
+
+button {
+    background-color: var(--clr-primary-500);
+    border: 0;
+    padding: .3em 1em;
+
+    text-transform: uppercase;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: .05em;
+}
+
+button:hover {
+    filter: brightness(80%);
+    cursor: pointer;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--clr-primary-500);
+    outline-offset: 2px;
+}
+
+p {
+    line-height: 150%;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+#landing {
+    padding: 3rem 0;
+}
+
+.landing__text {
+    max-width: 35ch;
+    margin-top: 2em;
+}
+
+.landing__btn {
+    margin-top: 1em;
+}
+
+.landing__avatar {
+    border-radius: 12.5% 50% 50%;
+}
+
+@media (min-width: 45em) {
+
+    #landing {
+        padding: 7rem 0;
+    }
+
+    #landing .container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .landing__text {
+        margin-top: 0;
+    }
 }
