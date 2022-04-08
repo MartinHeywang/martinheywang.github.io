@@ -38,6 +38,13 @@ button:focus-visible {
     outline-offset: 2px;
 }
 
+button:disabled {
+    filter: brightness(40%);
+    color: unset;
+    pointer-events: none;
+    user-select: none;
+}
+
 p {
     line-height: 150%;
 }

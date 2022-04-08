@@ -1,18 +1,60 @@
 .story {
-    &__content {
+    &__timeline {
+        display: flex;
+        // the width of the timeline is set through javascript because it depends on the number of points in the timeline
+        // width: calc(x * 100%);
+
+        transition: transform 300ms ease-in-out;
+    }
+
+    &__timeline-block {
+        width: 100%;
+        padding: 0 1rem;
+
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & p {
+            margin-top: 8rem;
+            text-align: center;
+            max-width: 28ch;
+        }
+
+        &:last-child .story__timeline-bar {
+            display: none;
+        }
+    }
+
+    &__timeline-bar {
+        position: absolute;
+        min-height: 1px;
+        width: 100%;
+        background-color: var(--clr-neutral-900);
+
+        transform: translateX(50%);
+
+        margin: 2rem 0;
+    }
+
+    &__timeline-point {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        margin: 2rem 0;
+        border-radius: 50%;
+
+        background-color: var(--clr-neutral-900);
+    }
+
+    &__timeline-controls {
         margin-top: 2rem;
 
-        columns: 25ch;
-        gap: 2em;
-
-        text-align: justify;
-    }
-
-    &__p {
-        margin-bottom: 0;
-    }
-
-    &__p:first-child {
-        margin-top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: .5em;
     }
 }
