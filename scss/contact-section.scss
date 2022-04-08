@@ -2,11 +2,24 @@
     background-color: var(--clr-primary-500);
     color: #000;
 
-    & a {
-        background-color: rgba(0, 0, 0, 20%);
-        color: var(--clr-neutral-100);
+    &__box {
+        padding: 1em;
         
+        background-color: rgba(white, 10%);
+        margin-top: 2em;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    & a {
+        color: inherit;
         display: inline-block;
-        padding: .1em .2em;
+        font-size: 1.1em;
+    }
+
+    & p {
+        margin: 0;
+        margin-top: 1em;
     }
 }
