@@ -1,0 +1,40 @@
+@use "./media.scss" as media;
+
+.skills {
+    background-color: var(--clr-neutral-900);
+    color: var(--clr-neutral-100);
+
+    &__grid {
+        display: grid;
+        gap: 1em;
+        margin-top: 2em;
+
+        @include media.for-desktop {
+            grid-auto-rows: 1fr;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__box {
+        background-color: rgba(black, 30%);
+        padding: 1em;
+    }
+
+    ul {
+        padding: 0 1em;
+        // margin: 0;
+    }
+
+    li::marker {
+        color: var(--clr-primary-500);
+        
+        content: "#";
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.2em;
+        text-shadow: .5em .5em 1em black;
+    }
+
+    li {
+        padding-left: .5em;
+    }
+}
