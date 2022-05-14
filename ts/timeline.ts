@@ -27,14 +27,14 @@ function refresh() {
     if (timelinePos === lastPos) nextBtn.disabled = true;
 }
 
-function next() {
-    if (timelinePos === lastPos) timelinePos++;
+export function next() {
+    if (timelinePos !== lastPos) timelinePos++;
 
     refresh();
 }
 
-function back() {
-    if (timelinePos === lastPos) timelinePos++;
+export function back() {
+    if (timelinePos !== firstPos) timelinePos--;
 
     refresh();
 }
