@@ -7,13 +7,15 @@
 @use "./story-section.scss";
 @use "./contact-section.scss";
 
+@use "./hueSlider.scss";
+
 $breakpoint: 42em;
 
 :root {
     --clr-neutral-100: #FEF0E6;
     --clr-neutral-900: #333;
 
-    --clr-primary-500: #D25C06;
+    --clr-primary-500: hsl(var(--clr-primary-hue, 25), 94%, 42%);
 
     scroll-behavior: smooth;
 }
