@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/assets/favicon.fd56171b.svg" />
+        <link rel="icon" type="image/svg+xml" href="/assets/favicon.eee455cf.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,17 +16,92 @@
         
 
         <title>Martin Heywang &bull; Portfolio</title>
-      <script type="module" crossorigin src="/assets/index.ab73586a.js"></script>
-      <link rel="stylesheet" href="/assets/index.7ba60bb2.css">
+      <script type="module" crossorigin src="/assets/index.8a4440cc.js"></script>
+      <link rel="stylesheet" href="/assets/index.5add4775.css">
     </head>
     <body>
         <section id="landing" class="landing">
             <div class="container">
-                <img
-                    class="landing__avatar"
-                    src="/assets/favicon.fd56171b.svg"
-                    alt="my avatar - looks like an eye made out of square"
-                />
+                <svg viewBox="0 0 1500 1500" class="landing__avatar">
+                    <rect width="1500" height="1500" fill="#333333" />
+
+                    <rect x="389" y="519" width="719" height="438" fill="#EEEEEE" />
+
+                    <rect
+                        x="351.5"
+                        y="376.5"
+                        width="297"
+                        height="297"
+                        stroke="#333333"
+                        stroke-width="3"
+                        fill="#6F6F6F"
+                    />
+                    <rect
+                        x="851.5"
+                        y="376.5"
+                        width="297"
+                        height="297"
+                        stroke="#333333"
+                        stroke-width="3"
+                        fill="#6F6F6F"
+                    />
+                    <rect
+                        x="851.5"
+                        y="826.5"
+                        width="297"
+                        height="297"
+                        stroke="#333333"
+                        stroke-width="3"
+                        fill="#6F6F6F"
+                    />
+                    <rect
+                        x="351.5"
+                        y="826.5"
+                        width="297"
+                        height="297"
+                        stroke="#333333"
+                        stroke-width="3"
+                        fill="#6F6F6F"
+                    />
+                    <rect
+                        x="1051.5"
+                        y="596.5"
+                        width="297"
+                        height="297"
+                        stroke="#333333"
+                        stroke-width="3"
+                        fill="#6F6F6F"
+                    />
+                    <rect
+                        x="601.5"
+                        y="326.5"
+                        width="297"
+                        height="297"
+                        stroke="#333333"
+                        stroke-width="3"
+                        fill="#6F6F6F"
+                    />
+                    <rect
+                        x="601.5"
+                        y="876.5"
+                        width="297"
+                        height="297"
+                        stroke="#333333"
+                        stroke-width="3"
+                        fill="#6F6F6F"
+                    />
+                    <rect
+                        x="151.5"
+                        y="596.5"
+                        width="297"
+                        height="297"
+                        stroke="#333333"
+                        stroke-width="3"
+                        fill="#6F6F6F"
+                    />
+
+                    <rect x="580" y="575" width="340" height="340" fill="var(--clr-primary-500)" />
+                </svg>
                 <div class="landing__text">
                     <h1 class="landing__title">Martin Heywang</h1>
                     <p class="landing__p">I'm a young, french, self-taught, always-smiling developer.</p>
@@ -36,48 +111,235 @@
                 </div>
             </div>
         </section>
+        <div class="section hue-slider" id="hue-slider">
+            <div class="container">
+                <p>Magic slider!</p>
+                <input type="range" class="hue-slider__input" min="5" max="365" step="10" />
+            </div>
+        </div>
         <section id="skills" class="skills">
             <div class="container">
                 <h2>Skills</h2>
-                <div class="skills__grid">
-                    <div class="skills__box">
-                        <h3>I speak ...</h3>
-                        <ul>
-                            <li>French (mother language)</li>
-                            <li>English (B2+)</li>
-                            <li>German (B2 - C1)</li>
-                        </ul>
-                    </div>
-                    <div class="skills__box">
-                        <h3>I ...</h3>
-                        <ul>
-                            <li>... am organized</li>
-                            <li>... like to solve problems</li>
-                            <li>... love languages</li>
-                            <li>... am happy (and make silly jokes) !</li>
-                        </ul>
-                    </div>
-                    <div class="skills__box">
-                        <h3>My programming languages</h3>
-                        <ul>
-                            <li>Java (2.5y experience)</li>
-                            <li>Javascript (2.5y experience)</li>
-                            <li>HTML / CSS (2y experience)</li>
-                            <li>TypeScript (1.5y experience)</li>
-                            <li>SQL (1y experience)</li>
-                        </ul>
-                    </div>
-                    <div class="skills__box">
-                        <h3>Tools & Frameworks</h3>
-                        <ul>
-                            <li>Git & GitHub (2.5y experience)</li>
-                            <li>VSCode (2.5y experience)</li>
-                            <li>React.js (1.5y experience)</li>
-                            <li>Maven (1y experience)</li>
-                            <li>SQLite (1.5y experience)</li>
-                            <li>and more!</li>
-                        </ul>
-                    </div>
+                <p>Basically all I can do. Things that I know. Things that I've used. Things I've learnt.<br><em>* years of experience</em></p>
+                <div class="skills__zone">
+                    <h3 class="skills__zone-title">Languages</h3>
+                    <ul class="skills__zone-list">
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/french-flag.8606d877.svg"
+                                    alt="french flag"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">French</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/union-jack.6c9c58bf.svg"
+                                    alt="english flag"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">English <br>(B2 - C1)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/german-flag.fce18126.svg"
+                                    alt="german flag"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">German <br>(B2&nbsp;-&nbsp;C1)</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skills__zone">
+                    <h3 class="skills__zone-title">Character traits</h3>
+                    <ul class="skills__zone-list">
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/organised-icon.ae908486.svg"
+                                    alt="a suit of two circles and a square bound together with arrows."
+                                />
+                            </div>
+                            <p class="skills__zone-desc">Organized</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/problem-solver-icon.166e62c4.svg"
+                                    alt="a man holding a lock in a hand and the key in the other"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">Problem solver</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/languages-lover-icon.af97318d.svg"
+                                    alt="two characters is two different languages"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">Languages lover</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/happy-icon.8c37a4bd.svg"
+                                    alt="a happy smiley"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">Happy!</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skills__zone">
+                    <h3>Programming languages</h3>
+                    <ul class="skills__zone-list">
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/java.03b27b6d.svg"
+                                    alt="the logo of the java programming language : a cup of tea"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">Java <br>(2.5y*)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/javascript.d62c204d.svg"
+                                    alt="the logo of javascript : a yellow square with 'JS' in the bottom right hand corner"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">JavaScript <br>(2.5y*)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/html.135b00cc.svg"
+                                    alt="the logo of html : a '5' in an orange shape"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">HTML / CSS <br>(2y*)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/typescript.9dc5cb55.svg"
+                                    alt="the logo of typescript : a blue rounded square with 'TS' in the bottom right hand corner"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">TypeScript (1.5y*)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/sql.4d0ce35f.png"
+                                    alt="the logo of SQLite : a stack of three cylinders representing a database"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">SQL (1y*)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/sass-logo.67289418.svg"
+                                    alt="the logo of Sass"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">Sass (1.5y*)</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skills__zone">
+                    <h3>Tools & Frameworks</h3>
+                    <ul class="skills__zone-list">
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/git-logo.44bf4850.png"
+                                    alt="the logo of git - source version control software"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">Git (3y*)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MzlFQkFERkU4NkJCMTFFM0FBNTJFRTMzNTJEMUJDNDYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MzlFQkFERkQ4NkJCMTFFM0FBNTJFRTMzNTJEMUJDNDYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkU1MTc4QTJFOTlBMDExRTI5QTE1QkMxMDQ2QTg5MDREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkU1MTc4QTJGOTlBMDExRTI5QTE1QkMxMDQ2QTg5MDREIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Kk5lQwAABYxJREFUeNrkm29oVXUYx3+7bM3V1FnbqlltrtXWtYRa1nqxooY5E7EhKWGuaTDBagol9SIMDCKICASj+cISw/DPi16ZBakrUBnoC7nNoTMWy6I1c+LmVq6t78N9jpyu555znt855+536IHPi939/jzP95zznN+/kzc1NaUitirwJJgPasF94DZQDG7hMqNgBFwEZ5kU+AH0R+lcXgQCJMBT4EXwLKgM2N7P4FvwJegCk6YKUA5eB23grogu2C/gc7AN/GGKABTsZtAOZqjc2DjYAT5kUfSNBNCkAGwGo1PTZ6PsQ4FuHLp3QD3YDR5QZtgZsAac1ElYokcGbATHDApesS/kUwf7GEkOKAK7wAvKbNsPXgZjYQowG3wNnlDxsONgCbgchgAU/GHwiIqXUT5o8hLBKwfcDA7FMHgrUR/iGLQEoGTyBWhQ8bUGjiFPR4A3QIuKv7VwLKIcQMnue5Dv0fjT/IwtAM3g+RyMBmkU+BXf3qc5Rx3xqDPBE7LjfkaCheCcj1HYKYe6JeBt8GcEo75L3HaJQ7+nfNQ/x7H9p67TFX4L1Pi4EocdfhsGH4BPwVbwqu0xGwI/8vT2N/77Gv+vAJSCO3n6PJ//Vjz72w62cPtORnfAwx7+1nBsW93ugGow7vOKtPkYa9eDl0Clxji9kuvW+yjb5tPncY7xet3MhjoFt2RzgIlU2DQL/O6017W/Be4BawXJqMCgTH+ToOxajvWG1+AmYVBlBglQKrxwmzIFoB9XCzt91CABpL6sti62JcBiXtKS2GMGCSD1pZxjvi7AKmED9PraYJAAG2yvVL+2yi7AImHl90C3QQJ03/B+97ZF1lCYVlN6BBV/BffykNQkoyF4H5grqJOkO6BR2NF2A4O35gifCOs0JjTW9vYaPPPbJ11LJAFqBRVoDf68wQLQI3BBUL424XPiY1lvDOb/ZwRla0iAOYIKv8dAgEFB2VtJgJmCChMxEEAyHigmAQoFFWbFQIDZgrKF0p2hmTEQQOQjCTAmKD8vBgJUCcqOkQBXBBXosEORwcEXKdmBjCskwICgQr5h0+BMW6i8V7LtNkAC9As7WWqwAM8Jy/cnhBMhspVKvq2eC0uwbxLrSWhMa+dpdJQLW6mRpLtpOlyuMcL7CTwErhoSPG2ApjQEuD3BQ0fp0ZJqlT6pZYpt0wieYh60nuWDGp2+At4xIPgt7IvU0jHzBkFdgD27HWDGNGyGFHHfulaXuTN0IkBjZ8EykJeDwKmPFtAXwN8TTltjrVkKfwcawXJW3G3v8DTYCKoiCLwGvAl6QthpbnU6J5jP2f1uh1Wgxbbxwv0qvT/vtZRGA6wuzs50+Pkb8JdgQtPMq1VJld7bnxtSzhjgJD5hzwEW611OZK6xlSvzeYbAsl3Cx4PK7ozodOl6t93hfJByqbzOVnYh+MdHhxfBLI1bnuoMhRx8imPMKgDR5LG/nrSVfddHpx8HeO4/ClmApsw+snXsdk7gYMat+r5Hp0sDCLAkxOA7nfrI1nGxx2tmQUb5x8FuzgvD4Dw4wNm2MIAA1SEF38cx+RaAeBCMZGlwb44GOyUhBD/CsTj24TatpddXq3L+RIVmXnE4QzjJMaSylvBxFdqzKHsVrDD8Dmj36sOvIx0unewHDRENg4MI0BH2FyP0RcZOlzW3Ib7VLvPqDK0z1PEq7bDmLVwCLgnr0AhvnUp/0eJp0k9m6HO4fUp2nGZODgUY5PzUJVlHkxg1TEfnjxqY8I6yb12SSjqLm7T9/Ax4TaW/+JxuIx862KcL4toBk1QFT1omXZLRHQHaL3Npl/r8jH3QjiGsbJ3kGd/fDo6WBWi31KG9a9xXMgzfw35tVfCR9l52dk8Ibe7htnq57YowfY7i4+lYWUL9z+1fAQYACqstE4NCc18AAAAASUVORK5CYII="
+                                    alt="the logo of github - the octocat"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">GitHub (3y*)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/vscode.1782aac7.ico"
+                                    alt="the logo of visual studio code"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">VSCode (2.5y*)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/reactjs.9b2e9a38.ico"
+                                    alt="the logo of React.js"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">React.js (1.5y*)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAAAklEQVR4AewaftIAAAFwSURBVO3BsU0bAAAF0ePLXcQAySCUiBUYh8piI0aw3DIATWrqSG7SkRmQXETne+/uHb6I1ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojagSu7f3zk/umJfN/ldOJyPnNNB67s/umJX6+v5Ps+j0cu5zPXNKI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiduDG/H5+5lp+PDzw8+WF/9mBG/Pn7Y1bMqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiduDKLqcTn8cjt+DvxwefxyPXcjmduLa7d/giWiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNqI2ojaiNq/wAyOCE14wqH5wAAAABJRU5ErkJggg=="
+                                    alt="the logo of npm"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">npm (2.5y*)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/vite-logo.d085a561.svg"
+                                    alt="the logo of vite"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">Vite (1y*)</p>
+                        </li>
+                        <li class="skills__zone-item">
+                            <div class="skills__zone-image-container">
+                                <img
+                                    class="skills__zone-image"
+                                    src="/assets/firebase.484847bc.svg"
+                                    alt="the logo of firebase"
+                                />
+                            </div>
+                            <p class="skills__zone-desc">Firebase (1y*)</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
