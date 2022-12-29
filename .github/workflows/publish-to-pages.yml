@@ -1,5 +1,9 @@
 name: Publish to GitHub Pages
 
+# this action only builds ans pushes to the gh-pages branch
+# and the auto-generated script from github pages runs upon push to the gh-pages branch
+# which makes the last steps to publish to github pages
+
 on:
   push:
     branches: 
@@ -41,4 +45,4 @@ jobs:
 
       - name: Push
         working-directory: ./dist
-        run: git push -f "https://MartinHeywang:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/MartinHeywang/github-actions-test.git" main:gh-pages
+        run: git push -f "https://MartinHeywang:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/MartinHeywang/martinheywang.github.io.git" main:gh-pages
