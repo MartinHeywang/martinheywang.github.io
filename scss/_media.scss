@@ -1,0 +1,36 @@
+$bp-mobile: 600px;
+$bp-tablet: 900px;
+// 1112px = 1080px (max layout width) + 2 * 16px (default gutter width)
+$bp-desktop: 1112px; 
+
+@mixin desktop-only {
+    @media (min-width: 900px) {
+        @content;
+    }
+}
+
+@mixin tablet-only {
+    @media (min-width: 600px) and (max-width: 899px) {
+        @content;
+    }
+}
+
+@mixin mobile-only {
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin no-desktop {
+    @media (max-width: 899px) {
+        @content;
+    }
+}
+
+@mixin no-mobile {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+
+// no need for a "no-tablet" mixin

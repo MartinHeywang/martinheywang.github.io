@@ -1,0 +1,66 @@
+@use "../media" as media;
+
+.section--with-guides {
+    position: relative;
+    z-index: 1;
+}
+
+.guides {
+    display: grid;
+    grid: 1fr / repeat(var(--column-count), 1fr);
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 100%;
+    max-width: calc(var(--layout-width) + 2rem);
+    height: 100%;
+    padding: 0 16px;
+
+    transform: translateX(-50%);
+}
+
+$guide-color: rgba(#999999, 0.1);
+$dash-length: 15px;
+$dash-width: 1px;
+
+.guide {
+    // produces a dashed line effect
+    width: $dash-width;
+    background: linear-gradient(
+        180deg,
+        $guide-color 0,
+        $guide-color 50%,
+        transparent 50%,
+        transparent 100%
+    );
+    background-size: $dash-length $dash-length;
+
+    @include media.mobile-only {
+        &:nth-of-type(3n) {
+            display: none;
+        }
+    }
+
+    @include media.no-desktop {
+        &:nth-of-type(2n) {
+            display: none;
+        }
+    }
+}
+
+.guide:first-of-type,
+.guide:last-of-type {
+    // a solid line rather than a dashed one
+    background: $guide-color;
+}
+
+.guide:last-of-type {
+    // the last guide sticks to the right
+    position: absolute;
+    top: 0;
+    right: 16px; // not 0, because of the padding on the parent
+    height: 100%;
+}
+

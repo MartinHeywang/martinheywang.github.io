@@ -1,3 +1,15 @@
-body {
-    font-family: sans-serif;
-}
+// base layer
+@use "./resets.scss";
+@use "./defaults.scss";
+@use "./fonts.scss";
+
+// layout styles
+@use "./layout/layout.scss";
+@use "./layout/columns.scss";
+
+// miscellaneous style
+@use "./misc/guides.scss";
+
+// sections-specific styles
+@use "./sections/section.scss";
+@use "./sections/landing_page.scss";

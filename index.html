@@ -5,12 +5,40 @@
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap"
+            rel="stylesheet"
+        />
+
         <link rel="stylesheet" href="./scss/main.scss" />
         <script type="module" src="./ts/main.ts" defer></script>
 
         <title>Martin Heywang &bull; Portfolio</title>
     </head>
     <body>
-        <p>My portfolio is currently in development...</p>
+        <section class="landing-page section--with-guides">
+            <div class="section__background">
+                <div class="guides" aria-hidden="true">
+                    <div class="guide"></div>
+                    <div class="guide"></div>
+                    <div class="guide"></div>
+                    <div class="guide"></div>
+                    <div class="guide"></div>
+                </div>
+            </div>
+            <div class="section__layout">
+                <div class="column-layout" data-columns="2,2">
+                    <div>
+                        <h1 class="landing-page__title">Martin Heywang</h1>
+                        <p class="landing-page__paragraph">
+                            I am a French teenager, mid-time high school student and
+                            mid-time self-taught developer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>

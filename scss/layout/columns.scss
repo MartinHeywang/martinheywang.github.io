@@ -1,0 +1,25 @@
+@use "../media" as media;
+
+:root {
+    --column-count: 1;
+    @include media.no-mobile {
+        --column-count: 2;
+    }
+    @include media.desktop-only {
+        --column-count: 4;
+    }
+}
+
+.columns {
+    display: grid;
+}
+
+.column-layout {
+    display: grid;
+}
+
+.column-layout[data-columns="2,2"] {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start;
+    row-gap: 8px;
+}
