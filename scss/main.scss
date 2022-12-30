@@ -10,6 +10,9 @@
 // miscellaneous style
 @use "./misc/guides.scss";
 
+// "animation" styles
+@use "./animation/animation.scss";
+
 // sections-specific styles
 @use "./sections/section.scss";
 @use "./sections/landing_page.scss";

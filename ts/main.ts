@@ -1,1 +1,4 @@
-console.log("%cWelcome!", "color: skyblue; background-color: #222; font-weight: bold; font-size: 2rem;")
+import { initBallAnimation } from "./animation/ball";
+
+initBallAnimation();
+window.addEventListener("resize", initBallAnimation);

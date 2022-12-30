@@ -8,18 +8,22 @@
     @include media.desktop-only {
         --column-count: 4;
     }
+
+    --columnPaddingInline: .5rem;
+
+    @include media.no-mobile {
+        --columnPaddingInline: 1rem;
+    }
 }
 
 .columns {
-    display: grid;
-}
-
-.column-layout {
-    display: grid;
-}
-
-.column-layout[data-columns="2,2"] {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: flex-start;
-    row-gap: 8px;
+    width: 100%;
+    max-width: var(--layout-width);
+    
+    @include media.no-mobile {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: flex-start;
+        row-gap: 8px;
+    }
 }

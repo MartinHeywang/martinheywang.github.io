@@ -1,20 +1,50 @@
+@use "../media" as media;
+
 .landing-page {
     background-color: #020118;
     color: #dcdcdc;
 
     min-height: 100vh;
+
+    @include media.mobile-only {
+        min-height: calc(100vh);
+    }
 }
 
 .landing-page__title {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 6.5vw, 4rem);
     color: #fff;
 
-    padding-left: 1rem;
+    @include media.no-mobile {
+        min-width: calc(100% + 5ch);
+    }
+
+    padding-left: var(--columnPaddingInline);
 }
 
 .landing-page__paragraph {
     font-family: "Cascadia Code", "Consolas", monospace;
     font-size: 1.5rem;
 
-    padding-left: 1rem;
+    padding: 0 var(--columnPaddingInline);
+
+    @include media.mobile-only {
+        padding-right: 3rem;
+    }
+}
+
+.landing-page__animation {
+    // @include media.no-mobile {
+    bottom: 0;
+    height: 100%;
+    // }
+}
+
+.landing-page__canvas {
+    // @include media.no-mobile {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    // }
 }

@@ -1,6 +1,5 @@
 :root {
-    --layout-width: calc(100vw - 2 * var(--gutter-width))
-
+    --layout-width: calc(100vw - 2 * var(--gutter-width));
     --gutter-width: 16px;
 
     @media (min-width: 1112px) {
