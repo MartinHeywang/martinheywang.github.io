@@ -1,3 +1,5 @@
+import color from "../color";
+
 const animation = document.querySelector<HTMLDivElement>(".landing-page__animation")!;
 const canvas = animation.querySelector<HTMLCanvasElement>(".landing-page__canvas")!;
 const ctx = canvas.getContext("2d")!;
@@ -67,7 +69,7 @@ function drawCurve() {
     ctx.closePath();
     ctx.clip();
 
-    ctx.fillStyle = "dodgerblue";
+    ctx.fillStyle = color.primary[700];
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.restore();
 }
@@ -117,7 +119,7 @@ function updateBallPosition() {
 
     const { ballX, ballY } = calculateBallCoords(currentBallPosition);
 
-    ctx.fillStyle = "yellowgreen";
+    ctx.fillStyle = color.secondary[700];
     ctx.beginPath();
     ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
     ctx.fill();

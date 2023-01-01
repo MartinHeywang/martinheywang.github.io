@@ -1,8 +1,9 @@
 @use "../media" as media;
+@use "../color" as clr;
 
 .landing-page {
-    background-color: #020118;
-    color: #dcdcdc;
+    background-color: clr.$primary-100;
+    color: clr.$neutral-700;
 
     min-height: 100vh;
 
@@ -13,7 +14,7 @@
 
 .landing-page__title {
     font-size: clamp(2.5rem, 6.5vw, 4rem);
-    color: #fff;
+    color: clr.$neutral-900;
 
     @include media.no-mobile {
         min-width: calc(100% + 5ch);
