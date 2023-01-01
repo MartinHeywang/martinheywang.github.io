@@ -13,6 +13,8 @@
 }
 
 .landing-page__title {
+    position: relative;
+
     font-size: clamp(2.5rem, 6.5vw, 4rem);
     color: clr.$neutral-900;
 
@@ -23,6 +25,20 @@
     padding-left: var(--base-spacing);
     margin-top: calc(3 * var(--base-spacing));
     margin-bottom: var(--base-spacing);
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        left: 0;
+        top: 50%;
+        translate: 0 -50%;
+
+        height: 50%;
+        width: 1px;
+
+        background-color: currentColor;
+    }
 }
 
 .landing-page__paragraph {
@@ -32,7 +48,65 @@
     padding: 0 var(--base-spacing);
 
     @include media.mobile-only {
-        padding-right: 3rem;
+        margin-right: 3rem;
+    }
+}
+
+.landing-page__call-to-action {
+    display: inline-flex;
+    align-items: center;
+    gap: .5em;
+
+    // position: relative;
+
+    margin-left: var(--base-spacing);
+    margin-top: calc(var(--base-spacing) * 2);
+    background-color: rgba(clr.$neutral-300, .4);
+    border-radius: .7em;
+    border: 1px solid transparent;
+
+    padding: var(--base-spacing) calc(var(--base-spacing) * 2);
+
+    font-size: 1.3rem;
+    color: clr.$primary-700;
+    text-decoration: none;
+}
+
+.landing-page__call-to-action::after {
+    content: "";
+
+    border: .4em solid transparent;
+    border-left-color: currentColor;
+
+    --default-translate-y: 8%;
+    translate: 0 var(--default-translate-y);
+}
+
+.landing-page__call-to-action:hover {
+    // same origin color but different opacity
+    background-color: rgba(clr.$neutral-300, .7);
+}
+
+.landing-page__call-to-action:focus-visible {
+    border-color: white;
+    outline: none;
+}
+
+.landing-page__call-to-action:hover,
+.landing-page__call-to-action:focus-visible {
+    color: clr.$secondary-700;
+
+    &::after {
+        animation: arrow-move 700ms infinite alternate ease-in-out;
+    }
+
+    @keyframes arrow-move {
+        from {
+            translate: 0 var(--default-translate-y);
+        }
+        to {
+            translate: 75% var(--default-translate-y);
+        }
     }
 }
 
