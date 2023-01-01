@@ -8,12 +8,6 @@
     @include media.desktop-only {
         --column-count: 4;
     }
-
-    --columnPaddingInline: .5rem;
-
-    @include media.no-mobile {
-        --columnPaddingInline: 1rem;
-    }
 }
 
 .columns {

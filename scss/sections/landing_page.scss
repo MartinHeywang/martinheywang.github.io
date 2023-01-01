@@ -19,14 +19,16 @@
         min-width: calc(100% + 5ch);
     }
 
-    padding-left: var(--columnPaddingInline);
+    padding-left: var(--base-spacing);
+    margin-top: calc(3 * var(--base-spacing));
+    margin-bottom: var(--base-spacing);
 }
 
 .landing-page__paragraph {
     font-family: "Cascadia Code", "Consolas", monospace;
     font-size: 1.5rem;
 
-    padding: 0 var(--columnPaddingInline);
+    padding: 0 var(--base-spacing);
 
     @include media.mobile-only {
         padding-right: 3rem;

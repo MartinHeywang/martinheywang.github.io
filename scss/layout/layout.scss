@@ -1,6 +1,16 @@
+@use "../media" as media;
+
 :root {
     --layout-width: calc(100vw - 2 * var(--gutter-width));
     --gutter-width: 16px;
+
+    // only multiples of this base spacing can be found in the UI
+    // for margins, paddings, and space in general
+    --base-spacing: .7rem;
+
+    @include media.no-mobile {
+        --base-spacing: 1rem;
+    } 
 
     @media (min-width: 1112px) {
         --layout-width: 1080px;
