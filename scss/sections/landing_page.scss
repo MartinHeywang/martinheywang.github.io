@@ -34,17 +34,13 @@
 }
 
 .landing-page__animation {
-    // @include media.no-mobile {
     bottom: 0;
     height: 100%;
-    // }
 }
 
 .landing-page__canvas {
-    // @include media.no-mobile {
     position: absolute;
     inset: 0;
     height: 100%;
     width: 100%;
-    // }
 }
