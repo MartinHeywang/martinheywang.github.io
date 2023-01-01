@@ -1,4 +1,5 @@
 import color from "../color";
+import { breakpoints } from "../media";
 
 const animation = document.querySelector<HTMLDivElement>(".landing-page__animation")!;
 const canvas = animation.querySelector<HTMLCanvasElement>(".landing-page__canvas")!;
@@ -30,12 +31,12 @@ export function initBallAnimation() {
     const cw = (canvas.width = animation.clientWidth);
 
     maxBallPositions = 1000;
-    ballRadius = cw >= 900 ? 35 : cw >= 600 ? 25 : 15;
+    ballRadius = cw >= breakpoints.tablet ? 35 : cw >= breakpoints.mobile ? 25 : 15;
 
-    minX = cw >= 900 ? -1 : cw >= 600 ? -1 : -1;
-    maxX = cw >= 900 ? 1 : cw >= 600 ? 0.8 : 0.6;
-    minY = cw >= 900 ? -1 : cw >= 600 ? -1 : -0.9;
-    maxY = cw >= 900 ? 1 : cw >= 600 ? 0.9 : 0.8;
+    minX = cw >= breakpoints.tablet ? -1 : cw >= breakpoints.mobile ? -1 : -1;
+    maxX = cw >= breakpoints.tablet ? 1 : cw >= breakpoints.mobile ? 0.8 : 0.6;
+    minY = cw >= breakpoints.tablet ? -1 : cw >= breakpoints.mobile ? -1 : -0.9;
+    maxY = cw >= breakpoints.tablet ? 1 : cw >= breakpoints.mobile ? 0.9 : 0.8;
 
     drawCurve();
 
@@ -113,7 +114,7 @@ function updateBallPosition() {
         ctx.restore();
     }
 
-    const factor = canvas.width >= 900 ? 0.4 : canvas.width >= 600 ? 0.2 : 0.15;
+    const factor = canvas.width >= breakpoints.tablet ? 0.4 : canvas.width >= breakpoints.mobile ? 0.2 : 0.15;
 
     currentBallPosition = maxBallPositions - (window.scrollY / maxBallPositions) * 2500;
 
