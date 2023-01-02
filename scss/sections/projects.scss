@@ -15,7 +15,7 @@
     color: clr.$neutral-900;
 
     padding-left: var(--base-spacing);
-    margin-bottom: calc(2 * var(--base-spacing));
+    margin-bottom: calc(3 * var(--base-spacing));
 }
 
 $project-border-radius: 0.5em;
@@ -51,22 +51,13 @@ $project-border-radius: 0.5em;
         display: none;
     }
 
-    // no need to change grid position for &:first-child
-
-    &:nth-child(2) {
-        grid-row: 4 / 5;
-        grid-column: 2 / 3;
+    &:first-child {
+        grid-row: 1 / 2;
+        grid-column: -2 / -1;
     }
-
-    @include media.desktop-only {
-        &:first-child {
-            grid-row: 1 / 2;
-            grid-column: -2 / -1;
-        }
-        &:nth-child(2) {
-            grid-row: -1 / -2;
-            grid-column: 1 / 2;
-        }
+    &:nth-child(2) {
+        grid-row: -1 / -2;
+        grid-column: 1 / 2;
     }
 }
 
@@ -107,7 +98,7 @@ $project-border-radius: 0.5em;
 .projects__project__technology {
     display: flex;
     align-items: center;
-    gap: .5em;
+    gap: 0.5em;
 
     font-size: 0.9rem;
     font-family: "Cascadia Code", "Consolas", monospace;
@@ -133,7 +124,7 @@ $project-border-radius: 0.5em;
 }
 
 .projects__project__technology-hint--javascript {
-    background-color: hsl(60, 80%, 40%)
+    background-color: hsl(60, 80%, 40%);
 }
 
 .projects__project__technology-hint--typescript {
@@ -143,4 +134,54 @@ $project-border-radius: 0.5em;
 .projects__project__time {
     font-size: 0.9rem;
     color: clr.$neutral-500;
+}
+
+.projects__project__links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em;
+
+    margin-top: calc(var(--base-spacing) * 2);
+}
+
+.projects__project__link {
+    display: flex;
+    align-items: center;
+
+    max-width: max-content;
+
+    gap: calc(var(--base-spacing) * 0.5);
+
+    padding: calc(var(--base-spacing) * 0.5);
+    border: 1px solid transparent;
+    border-radius: 1em;
+
+    text-decoration: none;
+    color: inherit;
+
+    &::after {
+        content: "";
+
+        border: 0.4em solid transparent;
+        border-left-color: currentColor;
+    }
+}
+
+.projects__project__link:first-child {
+    background-color: rgba(clr.$neutral-300, 0.4);
+    color: clr.$primary-700;
+}
+
+.projects__project__link:hover {
+    background-color: rgba(clr.$neutral-300, .4);
+}
+
+.projects__project__link:focus-visible {
+    border: 1px solid clr.$neutral-900;
+    outline: none;
+}
+
+.projects__project__link:is(:hover, :focus-visible) {
+    color: clr.$secondary-700;
 }
