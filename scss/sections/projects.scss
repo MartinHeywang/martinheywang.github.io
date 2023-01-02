@@ -12,6 +12,7 @@
 
 .projects__title {
     font-size: clamp(2rem, 5vw, 3.3rem);
+    color: clr.$neutral-900;
 
     padding-left: var(--base-spacing);
     margin-bottom: calc(2 * var(--base-spacing));
@@ -74,6 +75,7 @@ $project-border-radius: 0.5em;
     width: var(--size);
     height: var(--size);
 
+    border-radius: $project-border-radius;
     background-color: rgba(clr.$neutral-900, 0.8);
     box-shadow: 0 0 7.5em rgba(clr.$neutral-900, 0.4);
 }
@@ -95,6 +97,11 @@ $project-border-radius: 0.5em;
 
 .projects__project__title {
     font-size: 1.15rem;
+    color: clr.$neutral-900;
+}
+
+.projects__project__description {
+    margin-bottom: var(--base-spacing);
 }
 
 .projects__project__technology {
@@ -103,6 +110,7 @@ $project-border-radius: 0.5em;
     gap: .5em;
 
     font-size: 0.9rem;
+    font-family: "Cascadia Code", "Consolas", monospace;
 }
 
 .projects__project__technology-hint {
@@ -116,10 +124,23 @@ $project-border-radius: 0.5em;
     aspect-ratio: 1 / 1;
 }
 
-.projects__project__technology-hint--web {
-    background-color: hsl(270, 90%, 55%);
+.projects__project__technology-hint--html-css {
+    background-color: hsl(10, 90%, 55%);
 }
 
 .projects__project__technology-hint--java {
     background-color: hsl(25, 90%, 55%);
+}
+
+.projects__project__technology-hint--javascript {
+    background-color: hsl(60, 80%, 40%)
+}
+
+.projects__project__technology-hint--typescript {
+    background-color: hsl(225, 90%, 55%);
+}
+
+.projects__project__time {
+    font-size: 0.9rem;
+    color: clr.$neutral-500;
 }
