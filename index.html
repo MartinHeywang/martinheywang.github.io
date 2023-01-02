@@ -18,7 +18,7 @@
         <title>Martin Heywang &bull; Portfolio</title>
     </head>
     <body>
-        <section class="section landing-page section--with-guides">
+        <section class="section landing-page section--with-guides" id="landing-page">
             <div class="section__background">
                 <div class="guides" aria-hidden="true">
                     <div class="guide"></div>
@@ -36,7 +36,12 @@
                             I am a French teenager, mid-time high school student and
                             mid-time self-taught developer.
                         </p>
-                        <a href="#projects" class="landing-page__call-to-action" role="button">Projects</a>
+                        <a
+                            href="#projects"
+                            class="landing-page__call-to-action"
+                            role="button"
+                            >Projects</a
+                        >
                     </div>
                 </div>
             </div>
@@ -45,8 +50,8 @@
             </div>
         </section>
         <!-- only for scrolling purposes right now-->
-        <section style="min-height: 101vh" class="section section--with-guides">
-        <div class="section__background" id="projects">
+        <section class="section section--with-guides projects" id="projects">
+            <div class="section__background">
                 <div class="guides" aria-hidden="true">
                     <div class="guide"></div>
                     <div class="guide"></div>
@@ -54,6 +59,139 @@
                     <div class="guide"></div>
                     <div class="guide"></div>
                 </div>
-            </div></section>
+            </div>
+            <div class="section__layout">
+                <h2 class="projects__title">Projects</h2>
+
+                <ul class="projects__grid">
+                    <li
+                        class="projects__grid-item projects__grid-item--decoration"
+                        aria-hidden="true"
+                    >
+                        <div class="projects__light-bulb"></div>
+                    </li>
+                    <li
+                        class="projects__grid-item projects__grid-item--decoration"
+                        aria-hidden="true"
+                    >
+                        <div class="projects__light-bulb"></div>
+                    </li>
+                    <li class="projects__grid-item">
+                        <article class="projects__project">
+                            <div class="projects__project__header">
+                                <h3 class="projects__project__title">
+                                    Literal Calculator
+                                </h3>
+                                <div class="projects__project__technology">
+                                    <div
+                                        aria-hidden="true"
+                                        class="projects__project__technology-hint projects__project__technology-hint--web"
+                                    ></div>
+                                    Web
+                                </div>
+                            </div>
+                            <p class="projects__project__description">
+                                A web application that reduces & simplifies mathematical
+                                literal expressions.
+                            </p>
+                        </article>
+                    </li>
+                    <li class="projects__grid-item">
+                        <article class="projects__project">
+                            <div class="projects__project__header">
+                                <h3 class="projects__project__title">Minesweeper</h3>
+                                <div class="projects__project__technology">
+                                    <div
+                                        aria-hidden="true"
+                                        class="projects__project__technology-hint projects__project__technology-hint--web"
+                                    ></div>
+                                    Web
+                                </div>
+                            </div>
+                            <p class="projects__project__description">
+                                My version of the classical minesweeper game, with a
+                                customizable game board.
+                            </p>
+                        </article>
+                    </li>
+                    <li class="projects__grid-item">
+                        <article class="projects__project">
+                            <div class="projects__project__header">
+                                <h3 class="projects__project__title">PRODUCTS.</h3>
+                                <div class="projects__project__technology">
+                                    <div
+                                        aria-hidden="true"
+                                        class="projects__project__technology-hint projects__project__technology-hint--java"
+                                    ></div>
+                                    Java
+                                </div>
+                            </div>
+                            <p class="projects__project__description">
+                                A desktop idle factory game where you try to enrich
+                                yourself as fast as possible.
+                            </p>
+                        </article>
+                    </li>
+                    <li class="projects__grid-item">
+                        <article class="projects__project">
+                            <div class="projects__project__header">
+                                <h3 class="projects__project__title">Slideshow</h3>
+                                <div class="projects__project__technology">
+                                    <div
+                                        aria-hidden="true"
+                                        class="projects__project__technology-hint projects__project__technology-hint--web"
+                                    ></div>
+                                    Web
+                                </div>
+                            </div>
+                            <p class="projects__project__description">
+                                A web-based slideshow that explains to non-programmers
+                                log4j's vulnerability end 2021.
+                            </p>
+                        </article>
+                    </li>
+                    <li class="projects__grid-item">
+                        <article class="projects__project">
+                            <div class="projects__project__header">
+                                <h3 class="projects__project__title">
+                                    Optical Illusions
+                                </h3>
+                                <div class="projects__project__technology">
+                                    <div
+                                        aria-hidden="true"
+                                        class="projects__project__technology-hint projects__project__technology-hint--web"
+                                    ></div>
+                                    Web
+                                </div>
+                            </div>
+                            <p class="projects__project__description">
+                                A website showcasing some well-known optical illusions,
+                                made entirely using CSS.
+                            </p>
+                        </article>
+                    </li>
+                    <li class="projects__grid-item">
+                        <article class="projects__project">
+                            <div class="projects__project__header">
+                                <h3 class="projects__project__title">
+                                    Calculator
+                                </h3>
+                                <div class="projects__project__technology">
+                                    <div
+                                        aria-hidden="true"
+                                        class="projects__project__technology-hint projects__project__technology-hint--web"
+                                    ></div>
+                                    Web
+                                </div>
+                            </div>
+                            <p class="projects__project__description">
+                                A primary school calculator, but upgraded with support of
+                                parentheses as well as &pi;.
+                            </p>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </body>
 </html>

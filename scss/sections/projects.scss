@@ -1,0 +1,127 @@
+@use "../color" as clr;
+@use "../media" as media;
+
+.projects {
+    background-color: clr.$neutral-100;
+    color: clr.$neutral-700;
+}
+
+.projects .section__layout {
+    padding: calc(4 * var(--base-spacing)) 0;
+}
+
+.projects__title {
+    font-size: clamp(2rem, 5vw, 3.3rem);
+
+    padding-left: var(--base-spacing);
+    margin-bottom: calc(2 * var(--base-spacing));
+}
+
+$project-border-radius: 0.5em;
+
+.projects__grid {
+    display: grid;
+    gap: var(--base-spacing);
+
+    list-style: none;
+    padding: 0 var(--base-spacing);
+
+    @include media.no-mobile {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 1fr;
+    }
+
+    @include media.desktop-only {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+.projects__grid-item {
+    display: flex;
+}
+
+.projects__grid-item--decoration {
+    display: grid;
+    place-items: center;
+
+    @include media.mobile-only {
+        // there's not enough room for them on mobile
+        display: none;
+    }
+
+    &:first-child {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+    }
+    &:nth-child(2) {
+        grid-row: -2 / -1;
+        grid-column: -2 / -1;
+    }
+
+    @include media.desktop-only {
+        &:first-child {
+            grid-row: 1 / 2;
+            grid-column: -2 / -1;
+        }
+        &:nth-child(2) {
+            grid-row: -1 / -2;
+            grid-column: 1 / 2;
+        }
+    }
+}
+
+.projects__light-bulb {
+    --size: 5em;
+    width: var(--size);
+    height: var(--size);
+
+    background-color: rgba(clr.$neutral-900, 0.8);
+    box-shadow: 0 0 7.5em rgba(clr.$neutral-900, 0.4);
+}
+
+.projects__project {
+    flex-grow: 1;
+
+    border: 1px solid clr.$neutral-700;
+    border-radius: $project-border-radius;
+
+    & > * {
+        padding: var(--base-spacing);
+    }
+}
+
+.projects__project__header {
+    background-color: rgba(clr.$neutral-900, 0.05);
+}
+
+.projects__project__title {
+    font-size: 1.15rem;
+}
+
+.projects__project__technology {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+
+    font-size: 0.9rem;
+}
+
+.projects__project__technology-hint {
+    display: block;
+
+    border-radius: 50%;
+    border: 2px solid clr.$neutral-700;
+
+    width: 1em;
+    height: 1em;
+    aspect-ratio: 1 / 1;
+}
+
+.projects__project__technology-hint--web {
+    background-color: hsl(270, 90%, 55%);
+}
+
+.projects__project__technology-hint--java {
+    background-color: hsl(25, 90%, 55%);
+}

@@ -12,6 +12,7 @@
     position: absolute;
     top: 0;
     left: 50%;
+    z-index: -1;
 
     width: 100%;
     max-width: calc(var(--layout-width) + 2rem);
