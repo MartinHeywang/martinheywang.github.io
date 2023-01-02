@@ -5,10 +5,12 @@
     background-color: clr.$primary-100;
     color: clr.$neutral-700;
 
-    min-height: 100vh;
-
-    @include media.mobile-only {
-        min-height: calc(100vh);
+    // the landing page has fixed height so the curve renders well (under the content)
+    min-height: 38em;
+    @include media.desktop-only {
+        // but on desktop things are layed out differently
+        // we safely can put a 100vh here
+        min-height: 100vh;
     }
 }
 
@@ -34,7 +36,7 @@
         top: 50%;
         translate: 0 -50%;
 
-        height: 50%;
+        height: 80%;
         width: 1px;
 
         background-color: currentColor;
@@ -113,6 +115,7 @@
 .landing-page__animation {
     bottom: 0;
     height: 100%;
+    max-height: 100vh;
 }
 
 .landing-page__canvas {
