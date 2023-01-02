@@ -1,4 +1,5 @@
 name: Publish to GitHub Pages
+run-name: Prepare on $GITHUB_SHA to publish to github pages
 
 # this action only builds ans pushes to the gh-pages branch
 # and the auto-generated script from github pages runs upon push to the gh-pages branch
