@@ -1,0 +1,119 @@
+@use "../color" as clr;
+@use "../media" as media;
+@use "../utils" as utils;
+
+$section-transition-height: calc(8 * var(--base-spacing));
+
+.skills {
+    position: relative;
+
+    background-color: clr.$secondary-100;
+    color: clr.$neutral-700;
+
+    @include media.supports-clip-path {
+        .section__background {
+            top: calc(-10 * var(--base-spacing));
+            height: calc(100% + 10 * var(--base-spacing));
+
+            clip-path: polygon(
+                100% 0%,
+                100% 100%,
+                0% 100%,
+                0% $section-transition-height
+            );
+        }
+    }
+}
+
+.skills__section-transition {
+    display: none;
+
+    @include media.supports-clip-path {
+        display: revert;
+
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        z-index: -3;
+
+        height: calc(10 * var(--base-spacing));
+        width: 100%;
+
+        background-color: clr.$secondary-100;
+
+        clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% $section-transition-height);
+    }
+}
+
+.skills .section__layout {
+    padding: calc(4 * var(--base-spacing)) 0;
+}
+
+.skills__title {
+    @include utils.section-title;
+
+    padding-left: var(--base-spacing);
+}
+
+.skills__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: calc(0.5 * var(--base-spacing));
+
+    margin: 0 var(--base-spacing);
+
+    // crops the corner of the elements in the corners
+    border-radius: 1em;
+    overflow: hidden;
+
+    @include media.desktop-only {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+.skills__skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--base-spacing);
+
+    padding: var(--base-spacing);
+    background-color: rgba(clr.$neutral-100, 0.7);
+    border: 1px solid transparent;
+
+    filter: grayscale(95%);
+
+    &:hover {
+        filter: grayscale(0%);
+        background-color: clr.$neutral-100;
+    }
+
+    img {
+        max-height: 5em;
+        max-width: min(100%, 5em);
+    }
+
+    div {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+}
+
+.skills__skill[data-layout="span-2"] {
+    grid-row: span 2;
+
+    @include media.desktop-only {
+        flex-direction: row;
+        justify-content: center;
+        gap: calc(2 * var(--base-spacing));
+        grid-column: span 2;
+        grid-row: revert;
+    }
+
+    div {
+        font-size: revert;
+    }
+}

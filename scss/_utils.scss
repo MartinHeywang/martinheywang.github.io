@@ -1,0 +1,8 @@
+@use "./color" as clr;
+
+@mixin section-title {
+    color: clr.$neutral-900;
+    font-size: clamp(2rem, 5vw, 3.3rem);
+
+    margin-bottom: calc(3 * var(--base-spacing));
+}

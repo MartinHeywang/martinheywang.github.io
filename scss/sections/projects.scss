@@ -4,6 +4,12 @@
 .projects {
     background-color: clr.$neutral-100;
     color: clr.$neutral-700;
+
+    @include media.supports-clip-path {
+        // a huge padding at the bottom here so that the next section (skills)
+        // can have a transition triangle
+        padding-bottom: calc(12 * var(--base-spacing));
+    }
 }
 
 .projects .section__layout {

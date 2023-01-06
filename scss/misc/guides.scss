@@ -12,7 +12,7 @@
     position: absolute;
     top: 0;
     left: 50%;
-    z-index: -1;
+    z-index: 10000;
 
     width: 100%;
     max-width: calc(var(--layout-width) + 2rem);
@@ -20,6 +20,8 @@
     padding: 0 16px;
 
     transform: translateX(-50%);
+
+    pointer-events: none;
 }
 
 $guide-color: rgba(#999999, 0.1);

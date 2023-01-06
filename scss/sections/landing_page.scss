@@ -48,68 +48,43 @@
     font-size: 1.5rem;
 
     padding: 0 var(--base-spacing);
+    margin-bottom: calc(2 * var(--base-spacing));
 
     @include media.mobile-only {
         margin-right: 3rem;
     }
 }
 
-.landing-page__call-to-action {
+.landing-page__scroll-indicator {
     display: inline-flex;
     align-items: center;
-    gap: .5em;
-
-    // position: relative;
+    gap: var(--base-spacing);
 
     margin-left: var(--base-spacing);
-    margin-top: calc(var(--base-spacing) * 2);
+    padding: var(--base-spacing);
     background-color: rgba(clr.$neutral-300, .4);
-    border-radius: .7em;
-    border: 1px solid transparent;
+    border-radius: 1em;
 
-    padding: var(--base-spacing) calc(var(--base-spacing) * 2);
-
-    font-size: 1.3rem;
     color: clr.$primary-700;
-    text-decoration: none;
-}
+    font-size: 1.3rem;
 
-.landing-page__call-to-action::after {
-    content: "";
+    &::before {
+        content: "";
 
-    border: .4em solid transparent;
-    border-left-color: currentColor;
+        border: .4em solid transparent;
+        border-top-color: currentColor;
 
-    --default-translate-y: 8%;
-    translate: 0 var(--default-translate-y);
-}
-
-.landing-page__call-to-action:hover {
-    // same origin color but different opacity
-    background-color: rgba(clr.$neutral-300, .7);
-}
-
-.landing-page__call-to-action:focus-visible {
-    border-color: white;
-    outline: none;
-}
-
-.landing-page__call-to-action:hover,
-.landing-page__call-to-action:focus-visible {
-    color: clr.$secondary-700;
-
-    &::after {
-        animation: arrow-move 700ms infinite alternate ease-in-out;
-    }
-
-    @keyframes arrow-move {
-        from {
-            translate: 0 var(--default-translate-y);
-        }
-        to {
-            translate: 75% var(--default-translate-y);
+        animation: up-and-down 700ms infinite alternate ease-in-out;
+        @keyframes up-and-down {
+            from {
+                translate: 0 -50%;
+            }
+            to {
+                translate: 0 50%;
+            }
         }
     }
+
 }
 
 .landing-page__animation {

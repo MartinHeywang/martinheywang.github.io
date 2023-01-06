@@ -34,3 +34,12 @@ $bp-desktop: 1112px;
 }
 
 // no need for a "no-tablet" mixin
+
+@mixin supports-clip-path {
+    // in most cases we're using clip-path with polygon function
+    // so it makes sense to check clip-path's support with it as the value
+    // and the parameters given are random
+    @supports (clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)) {
+        @content;
+    }
+}
