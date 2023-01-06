@@ -80,25 +80,24 @@ $project-border-radius: 0.5em;
 .projects__project {
     flex-grow: 1;
 
+    display: flex;
+    flex-direction: column;
+
     border: 1px solid clr.$neutral-700;
     border-radius: $project-border-radius;
 
     & > * {
         padding: var(--base-spacing);
+        width: 100%;
     }
 }
 
 .projects__project__header {
     background-color: rgba(clr.$neutral-900, 0.05);
 }
-
 .projects__project__title {
     font-size: 1.15rem;
     color: clr.$neutral-900;
-}
-
-.projects__project__description {
-    margin-bottom: var(--base-spacing);
 }
 
 .projects__project__technology {
@@ -137,6 +136,18 @@ $project-border-radius: 0.5em;
     background-color: hsl(225, 90%, 55%);
 }
 
+.projects__project__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    flex-grow: 1;
+}
+
+.projects__project__description {
+    margin-bottom: var(--base-spacing);
+}
+
 .projects__project__time {
     font-size: 0.9rem;
     color: clr.$neutral-500;
@@ -148,7 +159,8 @@ $project-border-radius: 0.5em;
     flex-wrap: wrap;
     gap: 0.5em;
 
-    margin-top: calc(var(--base-spacing) * 2);
+    margin-top: auto;
+    padding-top: calc(var(--base-spacing) * 2);
 }
 
 .projects__project__link {
