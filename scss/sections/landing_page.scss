@@ -5,15 +5,11 @@
     background-color: clr.$primary-100;
     color: clr.$neutral-700;
 
-    // // the landing page has fixed height so the curve renders well (under the content)
-    // min-height: 38em;
-    // @include media.desktop-only {
-    //     // but on desktop things are layed out differently
-    //     // we safely can put a 100vh here
-    //     min-height: 100vh;
-    // }
-
     min-height: max(38em, 100vh);
+
+    @include media.supports-advanced-viewport-units {
+        min-height: max(38em, 100svh);
+    }
 }
 
 .landing-page__title {
@@ -64,7 +60,7 @@
 
     margin-left: var(--base-spacing);
     padding: var(--base-spacing);
-    background-color: rgba(clr.$neutral-300, .4);
+    background-color: rgba(clr.$neutral-300, 0.4);
     border-radius: 1em;
 
     color: clr.$primary-700;
@@ -73,20 +69,19 @@
     &::before {
         content: "";
 
-        border: .4em solid transparent;
+        border: 0.4em solid transparent;
         border-top-color: currentColor;
 
         animation: up-and-down 700ms infinite alternate ease-in-out;
         @keyframes up-and-down {
             from {
-                translate: 0 -50%;
+                translate: 0 -40%;
             }
             to {
-                translate: 0 50%;
+                translate: 0 60%;
             }
         }
     }
-
 }
 
 .landing-page__animation {

@@ -46,7 +46,11 @@ $section-transition-height: calc(8 * var(--base-spacing));
 }
 
 .skills .section__layout {
-    padding: calc(4 * var(--base-spacing)) 0;
+    // at the top of the section, there is already a section transition
+    // that takes up some space
+    // that's why there is more space at the bottom than at the top
+    padding-top: calc(4 * var(--base-spacing));
+    padding-bottom: calc(8 * var(--base-spacing));
 }
 
 .skills__title {

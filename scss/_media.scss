@@ -43,3 +43,9 @@ $bp-desktop: 1112px;
         @content;
     }
 }
+
+@mixin supports-advanced-viewport-units {
+    @supports (min-height: 100svh) {
+        @content;
+    }
+}
