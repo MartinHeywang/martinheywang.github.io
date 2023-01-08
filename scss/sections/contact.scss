@@ -1,0 +1,116 @@
+@use "../color" as clr;
+@use "../media" as media;
+@use "../utils" as utils;
+
+.contact {
+    position: relative;
+    background: repeating-linear-gradient(
+        -45deg,
+        clr.$neutral-100,
+        clr.$neutral-100 40px,
+        clr.$neutral-700 40px,
+        clr.$neutral-700 41px
+    );
+
+    color: clr.$neutral-700;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: calc(6 * var(--base-spacing));
+
+        background: linear-gradient(180deg, clr.$neutral-100, transparent);
+    }
+}
+
+.contact .section__layout {
+    padding: calc(8 * var(--base-spacing)) 0;
+}
+
+.contact__content {
+    position: relative;
+
+    background-color: mix(clr.$neutral-100, clr.$neutral-900, 95%);
+    padding: calc(2 * var(--base-spacing));
+
+    &::after {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        translate: var(--base-spacing) var(--base-spacing);
+        z-index: -1;
+
+        // background-color: rgba(clr.$secondary-700, 0.3);
+        background-color: clr.$primary-700;
+    }
+}
+
+.contact .section__title {
+    @include utils.section-title;
+
+    // margin: 0;
+    padding: 0;
+
+    // text-align: center;
+    color: clr.$neutral-900;
+}
+
+.contact__options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--base-spacing);
+
+    list-style: none;
+
+    @include media.no-mobile {
+        flex-direction: row;
+    }
+
+    & > * { width: 100%; }
+}
+
+.contact__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--base-spacing);
+
+    width: 100%;
+
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.1rem;
+
+    padding: var(--base-spacing);
+    border-radius: 0.5em;
+
+    background-color: rgba(clr.$neutral-300, 0.4);
+    border: 1px solid transparent;
+
+    &::after {
+        content: "";
+
+        border: 0.4em solid transparent;
+        border-left-color: currentColor;
+    }
+
+    &:hover {
+        background-color: rgba(clr.$neutral-300, 0.7);
+    }
+
+    &:focus-visible {
+        border-color: clr.$neutral-900;
+        outline: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: clr.$secondary-700;
+    }
+}
