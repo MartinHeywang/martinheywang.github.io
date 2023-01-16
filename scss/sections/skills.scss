@@ -10,6 +10,8 @@ $section-transition-height: calc(8 * var(--base-spacing));
     background-color: clr.$secondary-100;
     color: clr.$neutral-700;
 
+    overflow-x: hidden;
+
     @include media.supports-clip-path {
         .section__background {
             top: calc(-10 * var(--base-spacing));
@@ -57,4 +59,37 @@ $section-transition-height: calc(8 * var(--base-spacing));
     @include utils.section-title;
 
     padding-left: var(--base-spacing);
+}
+
+.skills__main-content {
+    display: grid;
+
+    --padding-inline: var(--base-spacing);
+    grid-template-columns: repeat(2, calc(var(--layout-width) - var(--padding-inline)));
+    grid-template-rows: 1fr;
+    gap: var(--base-spacing);
+
+    padding: 0 var(--padding-inline);
+
+    transition: translate 250ms ease-in-out;
+
+    @include media.no-mobile {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.skills__main-content--translated {
+    @include media.mobile-only {
+        translate: calc(-1 * var(--layout-width));
+    }
+}
+
+.skills__all {
+    background-color: yellowgreen;
+}
+
+.skills__details {
+    background-color: coral;
+
+    min-height: 30em;
 }
