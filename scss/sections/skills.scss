@@ -10,8 +10,6 @@ $section-transition-height: calc(8 * var(--base-spacing));
     background-color: clr.$secondary-100;
     color: clr.$neutral-700;
 
-    overflow-x: hidden;
-
     @include media.supports-clip-path {
         .section__background {
             top: calc(-10 * var(--base-spacing));
@@ -61,35 +59,158 @@ $section-transition-height: calc(8 * var(--base-spacing));
     padding-left: var(--base-spacing);
 }
 
+$max-grid-height: max(30em, 90vh);
+
 .skills__main-content {
-    display: grid;
-
-    --padding-inline: var(--base-spacing);
-    grid-template-columns: repeat(2, calc(var(--layout-width) - var(--padding-inline)));
-    grid-template-rows: 1fr;
-    gap: var(--base-spacing);
-
-    padding: 0 var(--padding-inline);
-
-    transition: translate 250ms ease-in-out;
-
+    padding: 0 var(--base-spacing);
+    
     @include media.no-mobile {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.skills__main-content--translated {
-    @include media.mobile-only {
-        translate: calc(-1 * var(--layout-width));
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--base-spacing);
+        max-height: $max-grid-height;
     }
 }
 
 .skills__all {
-    background-color: yellowgreen;
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid clr.$neutral-700;
+
+    @include media.no-mobile {
+        max-height: $max-grid-height;
+    }
+}
+
+.skills__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--base-spacing);
+
+    overflow-y: scroll;
+
+    list-style: none;
+    padding: var(--base-spacing);
+
+    background-color: mix(clr.$neutral-100, clr.$secondary-700, 95%);
+
+    @include media.mobile-only {
+        max-height: max(15em, 60vh);
+    }
+
+    li {
+        background-color: clr.$neutral-300;
+
+        padding: .3em .5em;
+        border-radius: 1em;
+
+        &:nth-child(4n) {
+            background-color: clr.$secondary-700;
+            color: clr.$neutral-100;
+        }
+        &:nth-child(7n) {
+            background-color: clr.$primary-700;
+            color: clr.$neutral-100;
+        }
+    }
+}
+
+.skills__settings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--base-spacing);
+
+    background-color: clr.$neutral-700;
+    color: clr.$neutral-100;
+
+    padding: var(--base-spacing);
+
+    & > * {
+        min-width: 15ch;
+        flex-grow: 1;
+    }
+
+    &--hidden *:not(noscript) {
+        // when JavaScript is disabled, the features of the table header are not available
+        // so it is hidden by default
+        display: none;
+    }
+}
+
+.skills__search {
+    border: 1px solid transparent;
+    // border-bottom-color: clr.$neutral-700;
+    background-color: transparent;
+
+    color: inherit;
+    font: inherit;
+
+    // hover effect not needed, cursor already automatically changed
+
+    &:focus {
+        outline: none;
+        background-color: rgba(clr.$neutral-100, 0.3);
+    }
+}
+
+.skills__filter,
+.skills__sort {
+    position: relative;
+
+    --inner-padding: 0.3em;
+
+    &-text {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        translate: var(--inner-padding) -50%;
+
+        pointer-events: none;
+    }
+
+    &-select {
+        width: 100%;
+        opacity: 0.001;
+    }
+
+    padding: 0.3em 0;
+    padding-right: 0.4em;
+
+    // small arrow
+    &::after {
+        content: "";
+
+        position: absolute;
+        right: var(--inner-padding);
+        top: 50%;
+
+        // why only -25% ? (and not -50%)
+        // because the way the triangle is made makes the border-box's height
+        // two times bigger than it looks and 50% is too much (looks off a bit)
+        translate: 0 -25%;
+
+        border: 0.4em solid transparent;
+        border-top-color: currentColor;
+
+        pointer-events: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:hover,
+    &:focus-within {
+        outline: none;
+        background-color: rgba(clr.$neutral-100, 0.3);
+    }
 }
 
 .skills__details {
     background-color: coral;
 
-    min-height: 30em;
+    @include media.mobile-only {
+        min-height: max(20em, 70vh);
+    }
 }
