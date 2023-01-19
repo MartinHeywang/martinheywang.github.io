@@ -304,71 +304,126 @@
                 <div class="skills__section-transition" aria-hidden="true"></div>
                 <div class="skills__main-content">
                     <div class="skills__all">
-                        <div class="skills__settings skills__settings--hidden">
-                            <noscript>
-                                Enable JavaScript in your browser to search, filter and sort through this list of skills.
-                            </noscript>
-                            <input
-                                class="skills__search"
-                                type="search"
-                                placeholder="Type to search..."
-                            />
-                            <div class="skills__filter">
-                                <span class="skills__filter-text" aria-hidden="true"></span>
-                                <select class="skills__filter-select">
-                                    <option>No filter</option>
-                                    <option>Languages</option>
-                                    <option>Web Dev</option>
-                                </select>
-                            </div>
-                            <div class="skills__sort">
-                                <span class="skills__sort-text" aria-hidden="true"></span>
-                                <select class="skills__sort-select">
-                                    <option>No sorting</option>
-                                    <option>A-Z</option>
-                                    <option>Recent</option>
-                                </select>
-                            </div>
-                        </div>
+                        <p class="skills__detail-click-hint">
+                            Click on any skill to learn more !
+                        </p>
                         <ul class="skills__list">
-                            <li>Lorem.</li>
-                            <li>Nostrum?</li>
-                            <li>Quae.</li>
-                            <li>Necessitatibus?</li>
-                            <li>Asperiores!</li>
-                            <li>Nobis.</li>
-                            <li>Eveniet?</li>
-                            <li>Quam.</li>
-                            <li>Dolorem?</li>
-                            <li>Esse.</li>
-                            <li>Facere.</li>
-                            <li>Rem.</li>
-                            <li>Consequuntur.</li>
-                            <li>Eligendi.</li>
-                            <li>Mollitia!</li>
-                            <li>Blanditiis.</li>
-                            <li>Distinctio.</li>
-                            <li>Natus.</li>
-                            <li>Ut.</li>
-                            <li>Totam!</li>
-                            <li>Lorem.</li>
-                            <li>Labore!</li>
-                            <li>Dolore?</li>
-                            <li>Tempore?</li>
-                            <li>Excepturi!</li>
-                            <li>Cupiditate.</li>
-                            <li>Libero.</li>
-                            <li>Ipsa!</li>
-                            <li>Unde!</li>
-                            <li>Corporis.</li>
-                            <li>Labore.</li>
-                            <li>Sint?</li>
-                            <li>Repellendus?</li>
-                            <li>Ducimus!</li>
-                            <li>Debitis.</li>
+                            <li class="skill__item" data-detail="english">
+                                <a role="button" href="#detail:english">English C1</a>
+                            </li>
+                            <li class="skill__item" data-detail="java">
+                                <a role="button" href="#detail:java">Java</a>
+                            </li>
+                            <li class="skill__item" data-detail="reactjs">
+                                <a role="button" href="#detail:reactjs">ReactJS</a>
+                            </li>
+                            <li class="skill__item" data-detail="git">
+                                <a role="button" href="#detail:git">Git</a>
+                            </li>
+                            <li class="skill__item" data-detail="typescript">
+                                <a role="button" href="#detail:typescript">TypeScript</a>
+                            </li>
+                            <li class="skill__item" data-detail="html">
+                                <a role="button" href="#detail:html">HTML</a>
+                            </li>
+                            <li class="skill__item" data-detail="css">
+                                <a role="button" href="#detail:css">CSS</a>
+                            </li>
+                            <li class="skill__item" data-detail="rust">
+                                <a role="button" href="#detail:rust">Rust</a>
+                            </li>
+                            <li class="skill__item" data-detail="vitejs">
+                                <a role="button" href="#detail:vitejs">ViteJS</a>
+                            </li>
+                            <li class="skill__item" data-detail="sql">
+                                <a role="button" href="#detail:sql">SQL</a>
+                            </li>
+                            <li class="skill__item" data-detail="french">
+                                <a role="button" href="#detail:french">French C2</a>
+                            </li>
+                            <li class="skill__item" data-detail="positive">
+                                <a role="button" href="#detail:positive"
+                                    >Positive-minded</a
+                                >
+                            </li>
+                            <li class="skill__item" data-detail="python">
+                                <a role="button" href="#detail:python">Python</a>
+                            </li>
+                            <li class="skill__item" data-detail="maven">
+                                <a role="button" href="#detail:maven">Maven</a>
+                            </li>
+                            <li class="skill__item" data-detail="javafx">
+                                <a role="button" href="#detail:javafx">JavaFX</a>
+                            </li>
+                            <li class="skill__item" data-detail="xml">
+                                <a role="button" href="#detail:xml">XML</a>
+                            </li>
+                            <li class="skill__item" data-detail="github">
+                                <a role="button" href="#detail:github">GitHub</a>
+                            </li>
+                            <li class="skill__item" data-detail="json">
+                                <a role="button" href="#detail:json">JSON</a>
+                            </li>
+                            <li class="skill__item" data-detail="express">
+                                <a role="button" href="#detail:express">Express</a>
+                            </li>
+                            <li class="skill__item" data-detail="office">
+                                <a role="button" href="#detail:office">Office Apps</a>
+                            </li>
+                            <li class="skill__item" data-detail="javascript">
+                                <a role="button" href="#detail:javascript">JavaScript</a>
+                            </li>
+                            <li class="skill__item" data-detail="windows">
+                                <a role="button" href="#detail:windows">Windows</a>
+                            </li>
+                            <li class="skill__item" data-detail="firebase">
+                                <a role="button" href="#detail:firebase">Firebase</a>
+                            </li>
+                            <li class="skill__item" data-detail="eclipse">
+                                <a role="button" href="#detail:eclipse">Eclipse IDE</a>
+                            </li>
+                            <li class="skill__item" data-detail="vscode">
+                                <a role="button" href="#detail:vscode">VSCode</a>
+                            </li>
+                            <li class="skill__item" data-detail="arduino">
+                                <a role="button" href="#detail:arduino">Arduino IDE</a>
+                            </li>
+                            <li class="skill__item" data-detail="languages">
+                                <a role="button" href="#detail:languages"
+                                    >Languages lover</a
+                                >
+                            </li>
+                            <li class="skill__item" data-detail="sqlite">
+                                <a role="button" href="#detail:sqlite">SQLite</a>
+                            </li>
+                            <li class="skill__item" data-detail="german">
+                                <a role="button" href="#detail:german">German B2-C1</a>
+                            </li>
+                            <li class="skill__item" data-detail="organized">
+                                <a role="button" href="#detail:organized">Organized</a>
+                            </li>
+                            <li class="skill__item" data-detail="social">
+                                <a role="button" href="#detail:social">Social</a>
+                            </li>
+                            <li class="skill__item" data-detail="gitlab">
+                                <a role="button" href="#detail:gitlab">GitLab</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="skills__details"></div>
+                    <div class="skills__details">
+                        <div id="detail:git" class="skills__detail" data-detail="git">
+                            <div class="logo-wrapper">
+                                <img src="./assets/git-logo.png" alt="the git logo" />
+                            </div>
+                            <h3>Git</h3>
+                            <p>
+                                I started learning Git as I nearly lost
+                                all my code from a personal project end 2019. I now have a pretty
+                                strong knowledge about it and use it regularly on almost
+                                all projects, even the small ones.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

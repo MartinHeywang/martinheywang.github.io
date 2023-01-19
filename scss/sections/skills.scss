@@ -59,16 +59,16 @@ $section-transition-height: calc(8 * var(--base-spacing));
     padding-left: var(--base-spacing);
 }
 
-$max-grid-height: max(30em, 90vh);
+$max-grid-height: max(30em, 75vh);
 
 .skills__main-content {
     padding: 0 var(--base-spacing);
-    
+
     @include media.no-mobile {
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: var(--base-spacing);
-        max-height: $max-grid-height;
+        height: $max-grid-height;
     }
 }
 
@@ -79,14 +79,16 @@ $max-grid-height: max(30em, 90vh);
     border: 1px solid clr.$neutral-700;
 
     @include media.no-mobile {
-        max-height: $max-grid-height;
+        height: $max-grid-height;
     }
 }
 
 .skills__list {
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
     gap: var(--base-spacing);
+    flex-grow: 1;
 
     overflow-y: scroll;
 
@@ -98,119 +100,70 @@ $max-grid-height: max(30em, 90vh);
     @include media.mobile-only {
         max-height: max(15em, 60vh);
     }
+}
 
-    li {
+.skill__item {
+    align-self: flex-start;
+
+    // needs to be before the element so that the focus state overrides this rule
+    &:nth-child(3n) a {
+        background-color: clr.$secondary-700;
+        color: clr.$neutral-100;
+    }
+
+    a {
+        display: inline-block;
+
         background-color: clr.$neutral-300;
 
-        padding: .3em .5em;
+        padding: 0.3em 0.5em;
         border-radius: 1em;
+        color: clr.$neutral-700;
+        text-decoration: none;
 
-        &:nth-child(4n) {
-            background-color: clr.$secondary-700;
-            color: clr.$neutral-100;
-        }
-        &:nth-child(7n) {
-            background-color: clr.$primary-700;
-            color: clr.$neutral-100;
-        }
-    }
-}
-
-.skills__settings {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--base-spacing);
-
-    background-color: clr.$neutral-700;
-    color: clr.$neutral-100;
-
-    padding: var(--base-spacing);
-
-    & > * {
-        min-width: 15ch;
-        flex-grow: 1;
-    }
-
-    &--hidden *:not(noscript) {
-        // when JavaScript is disabled, the features of the table header are not available
-        // so it is hidden by default
-        display: none;
-    }
-}
-
-.skills__search {
-    border: 1px solid transparent;
-    // border-bottom-color: clr.$neutral-700;
-    background-color: transparent;
-
-    color: inherit;
-    font: inherit;
-
-    // hover effect not needed, cursor already automatically changed
-
-    &:focus {
-        outline: none;
-        background-color: rgba(clr.$neutral-100, 0.3);
-    }
-}
-
-.skills__filter,
-.skills__sort {
-    position: relative;
-
-    --inner-padding: 0.3em;
-
-    &-text {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        translate: var(--inner-padding) -50%;
-
-        pointer-events: none;
-    }
-
-    &-select {
-        width: 100%;
-        opacity: 0.001;
-    }
-
-    padding: 0.3em 0;
-    padding-right: 0.4em;
-
-    // small arrow
-    &::after {
-        content: "";
-
-        position: absolute;
-        right: var(--inner-padding);
-        top: 50%;
-
-        // why only -25% ? (and not -50%)
-        // because the way the triangle is made makes the border-box's height
-        // two times bigger than it looks and 50% is too much (looks off a bit)
-        translate: 0 -25%;
-
-        border: 0.4em solid transparent;
-        border-top-color: currentColor;
-
-        pointer-events: none;
-    }
-
-    &:hover {
         cursor: pointer;
-    }
 
-    &:hover,
-    &:focus-within {
-        outline: none;
-        background-color: rgba(clr.$neutral-100, 0.3);
+        &:focus-visible {
+            outline: none;
+            color: clr.$neutral-100;
+            background-color: clr.$primary-700;
+        }
     }
 }
 
 .skills__details {
-    background-color: coral;
+    border: 1px solid clr.$neutral-700;
+    background-color: clr.$secondary-100;
+
+    overflow-y: scroll;
+
+    padding: calc(3 * var(--base-spacing));
 
     @include media.mobile-only {
         min-height: max(20em, 70vh);
     }
+}
+
+.skills__detail-click-hint {
+    padding: var(--base-spacing);
+
+    background-color: clr.$neutral-700;
+    color: clr.$neutral-100;
+
+    font-style: italic;
+}
+
+.skills__detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(2 * var(--base-spacing));
+
+    height: 100%;
+
+    
+}
+
+.skills__detail:not([id=""]):not(:target) {
+    display: none;
 }

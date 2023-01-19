@@ -1,38 +1,50 @@
-const settings = document.querySelector(".skills__settings")!;
-const search = document.querySelector(".skills__search")!;
-const filter = document.querySelector(".skills__filter")!;
-const sort = document.querySelector(".skills__sort")!;
+import * as media from "../media";
+
+const details = document.querySelector(".skills__details")!;
+const detailsList = details.querySelectorAll<HTMLDivElement>(".skills__detail");
+const skillsList = document.querySelectorAll<HTMLAnchorElement>(".skills__list li");
+
+let selected: string | null = location.hash.startsWith("#detail:")
+    ? location.hash.substring(8)
+    : null;
 
 export function initSkillsSection() {
-    // the features of the table are not available w/o JavaScript
-    // so it is hidden by default
-    settings.classList.remove("skills__settings--hidden");
+    // w/o JavaScript, the skills section totally works : using #links and :target
+    // but there is an odd behavior: the browser automatically scrolls
+    // (and it can't be prevented, I tried)
 
-    setupFilterAndSort();
+    // so with JavaScript here we're trying to achieve the same kind of effect
+    // but without the odd behaviors.
+
+    detailsList.forEach(detail => {
+        detail.id = "";
+    });
+
+    skillsList.forEach(item => {
+        item.addEventListener("click", () => {
+            selected = item.dataset.detail!;
+
+            updateDetailPanel(window.innerWidth < media.breakpoints.mobile);
+        });
+    });
+
+    updateDetailPanel();
 }
 
-function onSettingsChanged() {
+export function updateDetailPanel(scroll = false) {
+    console.log(`update detail panel (selected = '${selected}') (scroll = ${scroll})`);
 
-}
+    detailsList.forEach(detail => {
+        detail.style.display = "none";
 
-function setupFilterAndSort() {
-    const filterSelect = filter.querySelector("select")!;
-    const filterText = filter.querySelector("span")!;
+        if (selected === detail.dataset.detail) {
+            detail.style.display = "";
 
-    function updateFilterText() {
-        filterText.textContent = filterSelect.value;
-    }
-
-    filterSelect.addEventListener("change", updateFilterText);
-    updateFilterText();
-    
-    const sortSelect = sort.querySelector("select")!;
-    const sortText = sort.querySelector("span")!;
-
-    function updateSortText() {
-        sortText.textContent = sortSelect.value;
-    }
-    
-    sortSelect.addEventListener("change", updateSortText);
-    updateSortText();
+            if (scroll)
+                details.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                });
+        }
+    });
 }
