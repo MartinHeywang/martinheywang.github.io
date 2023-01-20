@@ -43,7 +43,6 @@ export function updateDetailPanel(scroll = false) {
             if (scroll)
                 details.scrollIntoView({
                     behavior: "smooth",
-                    block: "center",
                 });
         }
     });

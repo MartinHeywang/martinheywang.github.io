@@ -59,7 +59,7 @@ $section-transition-height: calc(8 * var(--base-spacing));
     padding-left: var(--base-spacing);
 }
 
-$max-grid-height: max(30em, 75vh);
+$max-grid-height: max(30em, 60vh);
 
 .skills__main-content {
     padding: 0 var(--base-spacing);
@@ -166,4 +166,28 @@ $max-grid-height: max(30em, 75vh);
 
 .skills__detail:not([id=""]):not(:target) {
     display: none;
+}
+
+.skill__logo-wrapper {
+    background-color: rgba(clr.$neutral-100, .5);
+    border-radius: .5em;
+
+    display: grid;
+    place-items: center;
+
+    min-width: calc(7 * var(--base-spacing));
+    min-height: calc(7 * var(--base-spacing));
+    max-width: 50%;
+    aspect-ratio: 1 / 1;
+}
+
+.skill__logo {
+    width: 75%;
+    height: 75%;
+
+    object-fit: contain;
+}
+
+.skill__description {
+    line-height: 175%;
 }
