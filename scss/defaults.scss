@@ -1,11 +1,10 @@
+@use "./media" as media;
+
 html, body {
     min-height: 100vh;
 }
 
 body {
     font-family: "Poppins", sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
+    overflow-x: hidden;
 }

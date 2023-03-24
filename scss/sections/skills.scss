@@ -58,3 +58,121 @@ $section-transition-height: calc(8 * var(--base-spacing));
 
     padding-left: var(--base-spacing);
 }
+
+// does not include the title, only the paragraphs
+.skills__text {
+    padding-left: var(--base-spacing);
+    padding-right: var(--base-spacing);
+
+    font-size: 1.2rem;
+    // font-family: "Cascadia Code", "Consolas", monospace;
+
+    > p {
+        margin-bottom: 1em;
+    }
+}
+
+.skills__flower-container {
+    position: relative;
+
+    // distance between the center of the core and the center of a petal
+    // we're using layout-width / 2 to avoid the layout to break on small screen sizes
+    --flower-radius: min(12em, calc(var(--layout-width) / 2));
+
+    // again, these two variables depend on the layout width
+    // to prevent the petal to be too big (for example)
+    --flower-center-radius: min(2em, calc(var(--layout-width) / 5));
+    --petal-radius: min(4em, calc(var(--layout-width) / 4.5));
+
+    @include media.no-desktop {
+        padding: calc(var(--flower-radius) + var(--petal-radius)) 0;
+    }
+}
+
+.skills__flower {
+    position: absolute;
+    right: 0;
+    translate: 50% 0;
+
+    --revolution: 25s;
+    animation: flower-rotate var(--revolution) linear infinite;
+
+    @include media.desktop-only {
+        top: 0;
+    }
+}
+
+@keyframes flower-rotate {
+    0% {
+        rotate: 0deg;
+    }
+    33% {
+        rotate: 120deg;
+    }
+    66% {
+        rotate: 240deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+
+.skills__flower-center {
+    min-width: calc(var(--flower-center-radius) * 2);
+    min-height: calc(var(--flower-center-radius) * 2);
+
+    border-radius: 50%;
+    background-color: clr.$secondary-700;
+}
+
+.skills__flower-petal {
+    display: grid;
+    place-items: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    min-width: calc(var(--petal-radius) * 2);
+    min-height: calc(var(--petal-radius) * 2);
+    border-radius: 50%;
+
+    border: 1px solid clr.$neutral-300;
+    background-color: clr.$neutral-100;
+
+    --angle: 0deg;
+    translate: calc(var(--flower-radius) * cos(var(--angle)) - 50%)
+        calc(var(--flower-radius) * sin(var(--angle)) - 50%);
+
+    animation: petal-rotate var(--revolution) linear infinite;
+
+    > img {
+        object-fit: contain;
+        max-width: 60%;
+        max-height: 60%;
+    }
+}
+
+// to counter the effect of the flower rotation
+@keyframes petal-rotate {
+    0% {
+        rotate: 0deg;
+    }
+    33% {
+        rotate: -120deg;
+    }
+    66% {
+        rotate: -240deg;
+    }
+    100% {
+        rotate: -360deg;
+    }
+}
+
+// for loop to set the right --angle on each petal
+$petal-count: 6;
+@for $i from 1 through $petal-count {
+    .skills__flower-petal:nth-last-of-type(#{$i}) {
+        --angle: #{360deg * $i / $petal-count};
+    }
+}
