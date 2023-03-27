@@ -2,12 +2,14 @@
 @use "../media" as media;
 @use "../utils" as utils;
 
+@use "sass:math";
+
 $section-transition-height: calc(8 * var(--base-spacing));
 
 .skills {
     position: relative;
 
-    background-color: clr.$secondary-100;
+    background-color: clr.$primary-100;
     color: clr.$neutral-700;
 
     @include media.supports-clip-path {
@@ -36,12 +38,29 @@ $section-transition-height: calc(8 * var(--base-spacing));
         right: 0;
         z-index: -3;
 
+        background-color: clr.$primary-100;
         height: calc(10 * var(--base-spacing));
         width: 100%;
 
-        background-color: clr.$secondary-100;
-
+        // triangle path
         clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% $section-transition-height);
+    }
+
+    // this can safely be outside of the media query
+    // because it's only visible if the media query matched.
+    &::after {
+        content: "";
+
+        $height: calc(2 * var(--base-spacing));
+
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        min-height: 100%;
+
+        background-color: clr.$primary-700;
+
+        clip-path: polygon(0 calc(100% - $height), 100% 0, 100% $height, 0 100%);
     }
 }
 
@@ -63,6 +82,7 @@ $section-transition-height: calc(8 * var(--base-spacing));
 .skills__text {
     padding-left: var(--base-spacing);
     padding-right: var(--base-spacing);
+    color: clr.$neutral-700;
 
     font-size: 1.2rem;
     // font-family: "Cascadia Code", "Consolas", monospace;
@@ -122,7 +142,7 @@ $section-transition-height: calc(8 * var(--base-spacing));
     min-height: calc(var(--flower-center-radius) * 2);
 
     border-radius: 50%;
-    background-color: clr.$secondary-700;
+    background-color: clr.$primary-700;
 }
 
 .skills__flower-petal {
@@ -138,7 +158,7 @@ $section-transition-height: calc(8 * var(--base-spacing));
     border-radius: 50%;
 
     border: 1px solid clr.$neutral-300;
-    background-color: clr.$neutral-100;
+    background-color: mix(clr.$primary-100, clr.$neutral-100, 40%);
 
     --angle: 0deg;
     translate: calc(var(--flower-radius) * cos(var(--angle)) - 50%)
@@ -173,6 +193,6 @@ $section-transition-height: calc(8 * var(--base-spacing));
 $petal-count: 6;
 @for $i from 1 through $petal-count {
     .skills__flower-petal:nth-last-of-type(#{$i}) {
-        --angle: #{360deg * $i / $petal-count};
+        --angle: #{math.div(360deg * $i, $petal-count)};
     }
 }
