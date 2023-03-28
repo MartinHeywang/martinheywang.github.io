@@ -42,8 +42,8 @@
 }
 
 .landing-page__paragraph {
-    font-family: "Cascadia Code", "Consolas", monospace;
-    font-size: 1.5rem;
+    // font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 1.4rem;
 
     padding: 0 var(--base-spacing);
     margin-bottom: calc(2 * var(--base-spacing));
@@ -60,11 +60,11 @@
 
     margin-left: var(--base-spacing);
     padding: var(--base-spacing);
-    background-color: rgba(clr.$neutral-300, 0.4);
+    background-color: rgba(clr.$neutral-300, 0.2);
     border-radius: 1em;
 
     color: clr.$primary-700;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 
     &::before {
         content: "";
