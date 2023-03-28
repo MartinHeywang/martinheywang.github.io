@@ -1,8 +1,10 @@
 import color from "../color";
 import { breakpoints } from "../media";
 
-const animation = document.querySelector<HTMLDivElement>(".landing-page__animation")!;
-const canvas = animation.querySelector<HTMLCanvasElement>(".landing-page__canvas")!;
+const scrollIndicator = document.querySelector(".landing-page__scroll-indicator")!;
+
+const animation = document.querySelector("div.landing-page__animation")!;
+const canvas = animation.querySelector<HTMLCanvasElement>("canvas.landing-page__canvas")!;
 const ctx = canvas.getContext("2d")!;
 
 // requestAnimationFrame utils
@@ -12,15 +14,16 @@ let rafId: number | null = null;
 // axis definition
 let minX = -1;
 let maxX = 1;
-let deltaX = maxX - minX;
 let minY = -1;
 let maxY = 1;
-let deltaY = maxY - minY;
 
-// equation of the curve drawn by the rectangles
-const f = (x: number) => x ** 3 + 1.25 * x ** 2 - 0.7;
+// equation of the curve
+const f = (x: number) => -0.5 * x ** 4 + 0.35 * x ** 3 + 1.13 * x ** 2 + 0.12 * x - 0.7;
 // derivative of f
-const fPrime = (x: number) => 3 * x ** 2 + 2.5 * x;
+const fPrime = (x: number) => -2 * x ** 3 + 1.05 * x ** 2 + 2.26 * x + 0.12;
+
+// the extremums of f, used as to define the position and the scale of the curve on the canvas
+const fExtremums = [-0.8, -0.05, 1.38];
 
 let currentBallPosition: number;
 let curveSamples: number;
@@ -32,23 +35,81 @@ let scrollValue: number;
 let speedFactor: number;
 
 export function initBallAnimation() {
-    const ch = canvas.height = animation.clientHeight;
+    const ch = (canvas.height = animation.clientHeight);
     const cw = (canvas.width = animation.clientWidth);
 
     curveSamples = 1500;
-    ballRadius = cw >= breakpoints.tablet ? cw * 0.025 : cw >= breakpoints.mobile ? cw * 0.04 : cw * 0.055;
+    ballRadius =
+        cw >= breakpoints.tablet
+            ? cw * 0.025
+            : cw >= breakpoints.mobile
+            ? cw * 0.04
+            : cw * 0.055;
     speedFactor = 5000;
     canvasOffsetY = canvas.getBoundingClientRect().y;
 
-    // change the part of the function that's visible
+    // -> change how the curve is displayed based on the viewport width
     // on desktop, the function can take a lot of space and span the right side of the screen
-    // while on mobile, the function should be more flat
+    // while it should be more flat on mobile
 
-    // order : desktop (first value) >= tablet (second value) >= mobile (third value) 
-    minX = cw >= breakpoints.tablet ? -1 : cw >= breakpoints.mobile ? -1 : -1;
-    maxX = cw >= breakpoints.tablet ? 1 : cw >= breakpoints.mobile ? 0.8 : 0.65;
-    minY = cw >= breakpoints.tablet ? -1 : cw >= breakpoints.mobile ? -0.9 : -0.9;
-    maxY = cw >= breakpoints.tablet ? 1 : cw >= breakpoints.mobile ? 1.4 : 2.1;
+    // the place the curve, we only need two points that are on this curve
+    // here, we use the two local maximums of the function
+
+    type Point = {
+        x: number;
+        y: number;
+        canvasX: number;
+        canvasY: number;
+    };
+
+    // the main portion of the curve is in this zone (max 1440px)
+    const mainCurveSpanPx = Math.min(animation.clientWidth, 1440);
+    // the curve is centered (just as the layout) - this value is the gap that lies on each side of the curve
+    const inlineCurveMargin = (animation.clientWidth - mainCurveSpanPx) / 2;
+
+    // the two points that we use to draw the curve
+    // we define both its x and y value, as well as where it should be on the canvas coordinate system
+    // using the extremums as those points here is strategic
+    // because it ensures that the curve won't go over a certain point for example
+    let leftExtremum: Point = {
+        x: fExtremums[0],
+        y: f(fExtremums[0]),
+        canvasX: inlineCurveMargin + 50, // looks better with +50 here, not a big deal
+        // function computes the nb of pixels from the bottom of the page to the bottom of the scroll indicator
+        canvasY: (() => {
+            const rect = scrollIndicator.getBoundingClientRect();
+            const offset = 100;
+
+            return window.scrollY + rect.top + rect.height + offset;
+        })(),
+    };
+
+    let rightExtremum: Point = {
+        x: fExtremums[2],
+        y: f(fExtremums[2]),
+        canvasX: inlineCurveMargin + mainCurveSpanPx,
+        canvasY: -30, // negative value here so the curve overflows at the top of the screen
+    };
+
+    // the chosen points are different on mobile
+    if(cw <= breakpoints.mobile) {
+        // this is intentionally off the screen, we don't want to show the extremum (it's too high!)
+        rightExtremum.canvasX = mainCurveSpanPx + 200;
+    }
+
+    const xDistance = Math.abs(leftExtremum.x - rightExtremum.x);
+    const yDistance = Math.abs(leftExtremum.y - rightExtremum.y);
+    const xCanvasDistance = Math.abs(leftExtremum.canvasX - rightExtremum.canvasX);
+    const yCanvasDistance = Math.abs(leftExtremum.canvasY - rightExtremum.canvasY);
+
+    // coefficients (how many pixels for one axis unit)
+    const kx = xCanvasDistance / xDistance;
+    const ky = yCanvasDistance / yDistance;
+
+    minX = leftExtremum.x - leftExtremum.canvasX / kx;
+    maxX = rightExtremum.x + (canvas.clientWidth - rightExtremum.canvasX) / kx;
+    minY = leftExtremum.y - (canvas.clientHeight - leftExtremum.canvasY) / ky;
+    maxY = rightExtremum.y + rightExtremum.canvasY / ky;
 
     drawCurve();
 
@@ -69,7 +130,7 @@ function drawCurve() {
     ctx.beginPath();
 
     for (let i = 0; i < curveSamples; i++) {
-        const x = minX + (deltaX / curveSamples) * i;
+        const x = minX + ((maxX - minX) / curveSamples) * i;
         const y = f(x);
 
         const { x: canvasX, y: canvasY } = axisToCanvas({ x, y });
@@ -89,7 +150,7 @@ function drawCurve() {
 
 function updateBallPosition() {
     function calculateBallCoords(ballPosition: number) {
-        const x = minX + (deltaX / curveSamples) * ballPosition;
+        const x = minX + ((maxX - minX) / curveSamples) * ballPosition;
         const y = f(x);
         const a = fPrime(x);
 
