@@ -78,7 +78,7 @@ export function initBallAnimation() {
         // function computes the nb of pixels from the bottom of the page to the bottom of the scroll indicator
         canvasY: (() => {
             const rect = scrollIndicator.getBoundingClientRect();
-            const offset = 100;
+            const offset = 90;
 
             return window.scrollY + rect.top + rect.height + offset;
         })(),
@@ -95,6 +95,11 @@ export function initBallAnimation() {
     if(cw <= breakpoints.mobile) {
         // this is intentionally off the screen, we don't want to show the extremum (it's too high!)
         rightExtremum.canvasX = mainCurveSpanPx + 200;
+        rightExtremum.canvasY += 50;
+
+        // other bull-eyed adjustments
+        leftExtremum.canvasX -= 40;
+        leftExtremum.canvasY += 20;
     }
 
     const xDistance = Math.abs(leftExtremum.x - rightExtremum.x);
