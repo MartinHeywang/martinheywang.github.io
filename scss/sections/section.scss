@@ -13,7 +13,6 @@
 .section {
     display: flex;
     justify-content: center;
-    // flex-direction: column;
 }
 
 .section__layout {
@@ -27,5 +26,5 @@
     z-index: -1;
 
     width: 100%;
-    max-width: var(--animation-width);
+    // max-width: var(--animation-width);
 }
