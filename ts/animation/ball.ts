@@ -276,9 +276,6 @@ function newBall() {
 
     clearInterval(ballMoveInterval);
 
-    console.log("Launched new ball!");
-    console.log(currentBall);
-
     ballMoveInterval = setInterval(moveBall, 10);
 }
 
@@ -300,7 +297,6 @@ function moveBall() {
     const deltaX = currentBall.speed * (deltaT / 1000);
 
     currentBall.x -= deltaX;
-    console.log("x: " + currentBall.x);
     currentBall.dateMoved = new Date();
 }
 
