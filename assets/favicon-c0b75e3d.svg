@@ -1,0 +1,17 @@
+<svg viewBox="0 0 1500 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+	<rect width="1500" height="1500" fill="#333333" />
+    
+	<rect x="389" y="519" width="719" height="438" fill="#EEEEEE" />
+
+	<rect x="351.5" y="376.5" width="297" height="297" stroke="#333333" stroke-width="3" fill="#6F6F6F" />
+	<rect x="851.5" y="376.5" width="297" height="297" stroke="#333333" stroke-width="3" fill="#6F6F6F" />
+	<rect x="851.5" y="826.5" width="297" height="297" stroke="#333333" stroke-width="3" fill="#6F6F6F" />
+	<rect x="351.5" y="826.5" width="297" height="297" stroke="#333333" stroke-width="3" fill="#6F6F6F" />
+	<rect x="1051.5" y="596.5" width="297" height="297" stroke="#333333" stroke-width="3" fill="#6F6F6F" />
+	<rect x="601.5" y="326.5" width="297" height="297" stroke="#333333" stroke-width="3" fill="#6F6F6F" />
+	<rect x="601.5" y="876.5" width="297" height="297" stroke="#333333" stroke-width="3" fill="#6F6F6F" />
+	<rect x="151.5" y="596.5" width="297" height="297" stroke="#333333" stroke-width="3" fill="#6F6F6F" />
+
+	<rect x="580" y="575" width="340" height="340" fill="dodgerblue" />
+</svg>
